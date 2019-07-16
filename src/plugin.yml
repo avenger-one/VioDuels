@@ -1,0 +1,9 @@
+name: VioDuels
+version: 1.0.1
+main: space.deniska.Duels
+author: violanes
+commands:
+  duel:
+    description: join duel queue
+  abort:
+    description: abort duel queue
