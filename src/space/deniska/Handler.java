@@ -92,8 +92,8 @@ public class Handler implements CommandExecutor, Listener
 
         for ( DuelCouple couple : players )
         {
-            if ( ( ( couple.getP1().equals( killed ) || couple.getP2().equals( killer ) ) && couple.IsAccepted( ) )
-                    || ( ( couple.getP1().equals( killer ) || couple.getP2().equals( killed ) ) && couple.IsAccepted( ) ) )
+            if ( ( ( couple.getP1( ).equals( killed ) || couple.getP2( ).equals( killer ) ) && couple.IsAccepted( ) )
+                    || ( ( couple.getP1( ).equals( killer ) || couple.getP2( ).equals( killed ) ) && couple.IsAccepted( ) ) )
             {
                 m_pDuel = couple;
             }
