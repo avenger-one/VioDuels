@@ -11,6 +11,7 @@ public class Duels extends JavaPlugin
     {
         getLogger( ).info( "plugin initializated" );
         getCommand( "duel" ).setExecutor( new Handler( this ) );
+        getCommand( "abort" ).setExecutor( new Handler( this ) );
         Bukkit.getPluginManager().registerEvents( new Handler( this ), this );
     }
 

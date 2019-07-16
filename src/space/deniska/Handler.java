@@ -33,6 +33,30 @@ public class Handler implements CommandExecutor, Listener
             return true;
         }
 
+        DuelCouple m_pDuel = null;
+
+        if ( command.getName( ).equalsIgnoreCase( "abort" ) )
+        {
+            for ( DuelCouple couple : players )
+            {
+                if ( ( couple.getP1( ).equals( commandSender ) || couple.getP2( ).equals( commandSender ) ) && !couple.IsAccepted( ) )
+                {
+                    m_pDuel = couple;
+                }
+            }
+            if (m_pDuel != null)
+            {
+                m_pDuel.getP2( ).sendMessage( ChatColor.RED + ( ( Player ) commandSender ).getDisplayName( ) + " отклонил вызов" );
+                m_pDuel.getP1( ).sendMessage( ChatColor.RED + ( ( Player ) commandSender ).getDisplayName( ) + " отклонил вызов" );
+                players.remove( m_pDuel );
+            }
+            else
+            {
+                commandSender.sendMessage( ChatColor.RED + "Ты еще никого не вызвал на дуэль" );
+            }
+            return true;
+        }
+
         if ( strings.length != 1 )
         {
             commandSender.sendMessage( ChatColor.RED + "Используй: /duel <ник>" );
@@ -54,11 +78,10 @@ public class Handler implements CommandExecutor, Listener
         }
 
         boolean m_bStartDuel = false;
-        DuelCouple m_pDuel = null;
 
         for ( DuelCouple couple : players )
         {
-            if ( ( couple.getP1().equals( commandSender ) || couple.getP2().equals( commandSender ) ) && !couple.IsAccepted( ) )
+            if ( ( couple.getP1( ).equals( commandSender ) || couple.getP2( ).equals( commandSender ) ) && !couple.IsAccepted( ) )
             {
                 //players.remove( couple );
                 m_pDuel = couple;

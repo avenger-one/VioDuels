@@ -7,7 +7,8 @@ import org.bukkit.entity.Player;
 class DuelCouple
 {
 
-    private Player p1, p2;
+    private Player p1;
+    private Player p2;
     private Boolean m_bAccepted;
 
     DuelCouple( Player p1, Player p2, boolean accepted )
